@@ -1,0 +1,67 @@
+﻿@page "{id:int}"
+@model CityWasp.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Informacija</h1>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.manufacturer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.manufacturer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.coordinates)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.coordinates)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.mileage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.mileage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.techincal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.techincal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.value)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.value)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.currentValue)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.currentValue)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.state)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.state)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Car.id">Redaguoti</a> |
+    <a asp-page="./Index">Į sąrašą</a>
+</div>

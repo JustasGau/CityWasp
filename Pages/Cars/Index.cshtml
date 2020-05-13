@@ -1,0 +1,78 @@
+﻿@page
+@model CityWasp.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Automobiliai</h1>
+
+<p>
+    <a name="createCar" asp-page="Create">Pridėti naują</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].coordinates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].mileage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].techincal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].currentValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].state)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Car) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.coordinates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mileage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.techincal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currentValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                <a asp-page="./Edit" name="openCarToEdit" asp-route-id="@item.id">Redaguoti</a> |
+                @*<a asp-page="./Details" asp-route-id="@item.id">Detaliau</a> |*@
+                <a asp-page="./Delete" name="selectCarToDelete" asp-route-id="@item.id">Trinti</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
