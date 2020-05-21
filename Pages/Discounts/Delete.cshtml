@@ -1,0 +1,45 @@
+﻿@page
+@model CityWasp.Pages.Discounts.DeleteModel
+
+@{
+    ViewData["Title"] = "Ištrinti";
+}
+
+<h1>Ištrinti</h1>
+
+<h3>Ar tikrai norite ištrinti šią nuolaidą?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount.percent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount.percent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount.startDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount.startDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount.endDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount.endDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Discount.code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Discount.code)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Discount.id" />
+        <input type="submit" value="Ištrinti" class="btn btn-danger" /> |
+        <a asp-page="./Index">Į sąrašą</a>
+    </form>
+</div>

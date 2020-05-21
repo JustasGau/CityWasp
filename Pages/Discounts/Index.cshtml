@@ -1,0 +1,52 @@
+﻿@page
+@model CityWasp.Pages.Discounts.IndexModel
+
+@{
+    ViewData["Title"] = "Nuolaidų sąrašas";
+}
+
+<h1>Nuolaidų sąrašas</h1>
+
+<p>
+    <a asp-page="Create"> Pridėti naują</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].percent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].startDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].endDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].code)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Discount) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.percent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.id">Pasirinkti</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
