@@ -89,5 +89,10 @@ namespace CityWasp.Pages.Trip
                 return View();
             }
         }
+
+        public void startTrip(boolean confirmed, int car_id)
+        {
+
+        }
     }
 }
