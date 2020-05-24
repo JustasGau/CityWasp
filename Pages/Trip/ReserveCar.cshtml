@@ -6,3 +6,11 @@
 
 <h1>ReserveCar</h1>
 
+<h1>Automobiliai</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Car.id" />
+    <input type="hidden" asp-for="Car.state" />
+    <input type="submit" value="Rezervuoti" class="btn btn-danger" /> |
+    <a asp-page="./Index">Į sąrašą</a>
+</form>

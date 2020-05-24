@@ -506,3 +506,6 @@ C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\CityWa
 C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\CityWasp.pdb
 C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\ConfirmationView.cshtml.g.cs
 C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\View.cshtml.g.cs
+C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\End.cshtml.g.cs
+C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\ReservationView.cshtml.g.cs
+C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\ReserveCar.cshtml.g.cs

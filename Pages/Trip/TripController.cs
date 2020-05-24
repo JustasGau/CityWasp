@@ -90,7 +90,7 @@ namespace CityWasp.Pages.Trip
             }
         }
 
-        public void startTrip(boolean confirmed, int car_id)
+        public void startTrip(bool confirmed, int car_id)
         {
 
         }
