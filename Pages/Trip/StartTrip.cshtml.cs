@@ -12,6 +12,7 @@ namespace CityWasp
     public class StartTripModel : PageModel
     {
         public int id { get; set; }
+        public string error { get; set; }
         public Trip trip = new Trip();
         public Car car { get; set; }
         private readonly CityWasp.Data.CityWaspContext _context;
@@ -20,13 +21,13 @@ namespace CityWasp
         {
             _context = context;
         }
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync(int id, string error)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
+            this.error = error;
             car = await _context.Car.FirstOrDefaultAsync(m => m.id == id);
 
             if (car == null)

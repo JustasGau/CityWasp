@@ -14,65 +14,66 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].model)
+                        @Html.DisplayNameFor(model => model.Trip[0].date)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].manufacturer)
+                        @Html.DisplayNameFor(model => model.Trip[0].distance)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].coordinates)
+                        @Html.DisplayNameFor(model => model.Trip[0].length)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].mileage)
+                        @Html.DisplayNameFor(model => model.Trip[0].price)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].techincal)
+                        @Html.DisplayNameFor(model => model.Trip[0].state)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].value)
+                        @Html.DisplayNameFor(model => model.Trip[0].tripCar)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].currentValue)
+                        @Html.DisplayNameFor(model => model.Trip[0].assignedDiscount)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Car[0].state)
+                        @Html.DisplayNameFor(model => model.Trip[0].id)
                     </th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Car)
+                @foreach (var item in Model.Trip)
                 {
-                    @if (item.state.Equals(CityWasp.Models.Car.CarState.InUse))
+                    @if (item.tripCar.state.Equals(CityWasp.Models.Car.CarState.InUse))
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.model)
+                                @Html.DisplayFor(modelItem => item.date)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.manufacturer)
+                                @Html.DisplayFor(modelItem => item.distance)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.coordinates)
+                                @Html.DisplayFor(modelItem => item.length)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.mileage)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.techincal)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.value)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.currentValue)
+                                @Html.DisplayFor(modelItem => item.price)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.state)
                             </td>
                             <td>
-
-                                <a asp-page="./ConfirmationView" name="openCarReservationView" asp-route-id="@item.id">Pradeti kelione</a>
+                                @Html.DisplayFor(modelItem => item.tripCar.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.assignedDiscount.code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                <form method="post" name="item.id">
+                                    <a asp-page="./End" name="endTrip" asp-route-id="@item.id">Pradeti kelione</a>
+                                    </form>
                             </td>
                         </tr>
                     }

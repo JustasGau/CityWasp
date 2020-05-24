@@ -20,6 +20,7 @@ namespace CityWasp
         }
 
         public IList<Car> Car { get; set; }
+        public IList<Trip> Trip { get; set; }
         public IList<Car> CarUsed { get; set; }
         public IList<Car> CarRez { get; set; }
         public int CarUsedCount { get; set; }
@@ -29,6 +30,7 @@ namespace CityWasp
         public async Task OnGetAsync()
         {
             Car = await _context.Car.ToListAsync();
+            Trip = await _context.Trip.ToListAsync();
             CarUsed = new List<Car>();
             CarRez = new List<Car>();
             foreach (var it in Car)

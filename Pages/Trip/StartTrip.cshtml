@@ -5,9 +5,15 @@
 }
 
 <h1>StartTrip</h1>
-
-<form method="post">
-    <input type="hidden" asp-for="car.id" />
-    <input type="submit" value="Pradėti kelionę" asp-route-id="@Model.car.id" class="btn btn-danger" /> |
-    <a asp-page="./View" asp-route-error="canceled" class="btn btn-warning">Atšaukti</a>
-</form>
+@if (Model.error == "canceled")
+{
+    <div class="alert alert-danger">
+        <div>Operacija atšaukta <a asp-page="./View" class="btn btn-link">Grįžti į sąrašą</a></div>
+        
+    </div>
+    }
+    <form method="post">
+        <input type="hidden" asp-for="car.id" />
+        <input type="submit" value="Pradėti kelionę" asp-route-id="@Model.car.id" class="btn btn-danger" /> |
+        <a asp-page="./StartTrip" asp-route-id="@Model.car.id" asp-route-error="canceled" class="btn btn-warning">Atšaukti</a>
+    </form>
