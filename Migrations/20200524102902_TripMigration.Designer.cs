@@ -4,14 +4,16 @@ using CityWasp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CityWasp.Migrations
 {
     [DbContext(typeof(CityWaspContext))]
-    partial class CityWaspContextModelSnapshot : ModelSnapshot
+    [Migration("20200524102902_TripMigration")]
+    partial class TripMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,45 +88,9 @@ namespace CityWasp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("assignedDiscountid")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("distance")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("length")
-                        .HasColumnType("int");
-
-                    b.Property<double?>("price")
-                        .HasColumnType("float");
-
-                    b.Property<int>("state")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("tripCarid")
-                        .HasColumnType("int");
-
                     b.HasKey("id");
 
-                    b.HasIndex("assignedDiscountid");
-
-                    b.HasIndex("tripCarid");
-
                     b.ToTable("Trip");
-                });
-
-            modelBuilder.Entity("CityWasp.Models.Trip", b =>
-                {
-                    b.HasOne("CityWasp.Models.Discount", "assignedDiscount")
-                        .WithMany()
-                        .HasForeignKey("assignedDiscountid");
-
-                    b.HasOne("CityWasp.Models.Car", "tripCar")
-                        .WithMany()
-                        .HasForeignKey("tripCarid");
                 });
 #pragma warning restore 612, 618
         }

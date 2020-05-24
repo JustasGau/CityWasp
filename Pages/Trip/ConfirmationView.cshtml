@@ -6,10 +6,8 @@
 
 <h1>TripConfirmationView</h1>
 
-<div>
-    <a asp-page="View">Atšaukti</a>
-</div>
-
-<div>
-    <a asp-page="Index">Į sąrašą</a>
-</div>
+<form method="post">
+    <input type="hidden" asp-for="car_id" />
+    <input type="submit" value="Patvirtinti" class="btn btn-danger" /> |
+    <a asp-page="./Index">Į sąrašą</a>
+</form>

@@ -509,3 +509,4 @@ C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\End.cshtml.g.cs
 C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\ReservationView.cshtml.g.cs
 C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\ReserveCar.cshtml.g.cs
+C:\Users\armsab\Desktop\Development\pssia\project\obj\Debug\netcoreapp3.1\Razor\Pages\Trip\StartTrip.cshtml.g.cs

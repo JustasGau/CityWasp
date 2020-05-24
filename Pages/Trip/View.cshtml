@@ -1,98 +1,250 @@
 ﻿@page
-@model CityWasp.StartTripModel
+@model CityWasp.ViewModel
 @{
     ViewData["Title"] = "View";
 }
 
-<h1>StartTrip</h1>
+<h1>Kelionė</h1>
 
 <div>
-    <a asp-page="Index">End trip</a>
-</div>
-
-<div>
-    <a asp-page="Index">Start trip</a>
-</div>
-
-<div>
-    <a asp-page="ReserveCar">Reserve car</a>
-</div>
-<p>
-    <a name="createCar" asp-page="Create">Pridėti naują</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].coordinates)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].mileage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].techincal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].value)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].currentValue)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Car[0].state)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Car)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.model)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.manufacturer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.coordinates)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mileage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.techincal)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.value)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.currentValue)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.state)
-                </td>
-                <td>
-                    @if (!item.state.Equals(CityWasp.Models.Car.CarState.Rezerved))
+    <h2>Baigti kelionę</h2>
+    @if (Model.CarUsedCount > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].manufacturer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].coordinates)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].mileage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].techincal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].currentValue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].state)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Car)
+                {
+                    @if (item.state.Equals(CityWasp.Models.Car.CarState.InUse))
                     {
-                        <a asp-page="./ReserveCar" name="openCarReservationView" asp-route-id="@item.id" asp-route-state="@item.state">Rezervuoti</a>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.model)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.manufacturer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.coordinates)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mileage)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.techincal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.value)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.currentValue)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.state)
+                            </td>
+                            <td>
+
+                                <a asp-page="./ConfirmationView" name="openCarReservationView" asp-route-id="@item.id">Pradeti kelione</a>
+                            </td>
+                        </tr>
                     }
-                    @if (item.state.Equals(CityWasp.Models.Car.CarState.Rezerved))
-                    {
-                        <a asp-page="./ReservationView" name="openCarReservationView" asp-route-id="@item.id">Peržiūrėti savo rezervuotą automobilį</a>
-                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5>Pradėtų kelionių nėra</h5>
+    }
+</div>
+
+<div>
+    <h2>Pradėti kelionę</h2>
+    @if (Model.CarRezCount > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].manufacturer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].coordinates)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].mileage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].techincal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].currentValue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].state)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CarRez)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.manufacturer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.coordinates)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mileage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.techincal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.currentValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.state)
+                        </td>
+                        <td>
+
+                            <a asp-page="./StartTrip" name="startTrip" asp-route-id="@item.id">Pradeti kelione</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5>Rezervuotų automobilių nėra</h5>
+    }
+</div>
+<div>
+    <h2>Rezervuoti automobilį</h2>
+    @if (Model.CarCount > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].manufacturer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].coordinates)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].mileage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].techincal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].currentValue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].state)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Car)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.manufacturer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.coordinates)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mileage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.techincal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.currentValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.state)
+                        </td>
+                        <td>
+                            @if (!item.state.Equals(CityWasp.Models.Car.CarState.Rezerved))
+                            {
+                                <a asp-page="./ReserveCar" name="reserveCar" asp-route-id="@item.id">Rezervuoti</a>
+                            }
+                            @if (item.state.Equals(CityWasp.Models.Car.CarState.Rezerved))
+                            {
+                                <a asp-page="./ReservationView" name="openCarReservationView" asp-route-id="@item.id">Peržiūrėti savo rezervuotą automobilį</a>
+                            }
 
 
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5>Automobilių nėra</h5>
+    }
+</div>
 
 

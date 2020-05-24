@@ -1,0 +1,13 @@
+﻿@page
+@model CityWasp.StartTripModel
+@{
+    ViewData["Title"] = "StartTrip";
+}
+
+<h1>StartTrip</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="car.id" />
+    <input type="submit" value="Pradėti kelionę" asp-route-id="@Model.car.id" class="btn btn-danger" /> |
+    <a asp-page="./View" asp-route-error="canceled" class="btn btn-warning">Atšaukti</a>
+</form>

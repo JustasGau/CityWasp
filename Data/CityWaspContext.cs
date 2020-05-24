@@ -16,6 +16,8 @@ namespace CityWasp.Data
 
         public DbSet<CityWasp.Models.Car> Car { get; set; }
 
+        public DbSet<CityWasp.Models.Trip> Trip { get; set; }
+
         public DbSet<CityWasp.Models.Discount> Discount { get; set; }
     }
 }

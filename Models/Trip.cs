@@ -8,8 +8,7 @@ namespace CityWasp.Models
 {
     public class Trip
     {
-		[Key]
-		int ID { get; set; }
+		public int id { get; set; }
 
 		public enum TripType
 		{
@@ -21,35 +20,22 @@ namespace CityWasp.Models
 
 		}
 
-		int length;
+		public int? length { get; set; }
 
-		int distance;
+		public int? distance { get; set; }
 
 		[DataType(DataType.Date)]
 		[Display(Name = "Galiojimo pradžios data")]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		DateTime date;
+		public DateTime date { get; set; }
 
-		double price;
+		public double? price { get; set; }
 
-		Discount assignedDiscount;
+		public Discount? assignedDiscount { get; set; }
 
-		Fine fineForTheTrip;
+		public Car tripCar { get; set; }
 
-		Car tripCar;
+		public TripType state { get; set; }
 
-		Client client;
-
-		TripType state;
-
-		public void updateTrip()
-		{
-
-		}
-
-		public void create(int car_id)
-		{
-
-		}
 	}
 }

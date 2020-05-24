@@ -4,14 +4,16 @@ using CityWasp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CityWasp.Migrations
 {
     [DbContext(typeof(CityWaspContext))]
-    partial class CityWaspContextModelSnapshot : ModelSnapshot
+    [Migration("20200524103051_TripMigration2")]
+    partial class TripMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,13 +94,13 @@ namespace CityWasp.Migrations
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("distance")
+                    b.Property<int>("distance")
                         .HasColumnType("int");
 
-                    b.Property<int?>("length")
+                    b.Property<int>("length")
                         .HasColumnType("int");
 
-                    b.Property<double?>("price")
+                    b.Property<double>("price")
                         .HasColumnType("float");
 
                     b.Property<int>("state")

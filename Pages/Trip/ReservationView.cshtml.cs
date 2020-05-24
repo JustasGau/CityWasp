@@ -97,6 +97,7 @@ namespace CityWasp
             }
             return Redirect("./ReservationView?id=" + id);
         }
+
         private bool CarExists(int id)
         {
             return _context.Car.Any(e => e.id == id);

@@ -9,9 +9,10 @@ namespace CityWasp
 {
     public class TripConfirmationViewModel : PageModel
     {
-        public void OnGet()
+        public int car_id { get; set; }
+        public void OnGet(int id)
         {
-
+            car_id = id;
         }
     }
 }

@@ -9,12 +9,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CityWasp
 {
-    public class ReserveCarModel : PageModel
+    public class StartTripModel : PageModel
     {
-        public Car Car { get; set; }
+        public int id { get; set; }
+        public Trip trip = new Trip();
+        public Car car { get; set; }
         private readonly CityWasp.Data.CityWaspContext _context;
 
-        public ReserveCarModel(CityWasp.Data.CityWaspContext context)
+        public StartTripModel(CityWasp.Data.CityWaspContext context)
         {
             _context = context;
         }
@@ -25,14 +27,17 @@ namespace CityWasp
                 return NotFound();
             }
 
-            Car = await _context.Car.FirstOrDefaultAsync(m => m.id == id);
+            car = await _context.Car.FirstOrDefaultAsync(m => m.id == id);
 
-            if (Car == null)
+            if (car == null)
             {
                 return NotFound();
             }
             return Page();
         }
+
+
+
         public async Task<IActionResult> OnPostAsync(int id)
         {
             if (id == null)
@@ -40,11 +45,13 @@ namespace CityWasp
                 return NotFound();
             }
 
-            Car = await _context.Car.FindAsync(id);
-
-            Car.state = CityWasp.Models.Car.CarState.Rezerved;
-
-            _context.Attach(Car).State = EntityState.Modified;
+            car = await _context.Car.FindAsync(id);
+            car.state = CityWasp.Models.Car.CarState.InUse;
+            _context.Attach(car).State = EntityState.Modified;
+            trip.state = CityWasp.Models.Trip.TripType.started;
+            trip.date = DateTime.Now;
+            trip.tripCar = car;
+            _context.Trip.Add(trip);
 
             try
             {
@@ -52,7 +59,11 @@ namespace CityWasp
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarExists(Car.id))
+                if (!CarExists(car.id))
+                {
+                    return NotFound();
+                }
+                if (!TripExists(trip.id))
                 {
                     return NotFound();
                 }
@@ -61,11 +72,17 @@ namespace CityWasp
                     throw;
                 }
             }
-            return Redirect("./ReservationView?id=" + id);
+            return RedirectToPage("./View");
         }
+
+
         private bool CarExists(int id)
         {
             return _context.Car.Any(e => e.id == id);
+        }
+        private bool TripExists(int id)
+        {
+            return _context.Trip.Any(e => e.id == id);
         }
     }
 }
