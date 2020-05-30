@@ -26,6 +26,11 @@ namespace CityWasp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSession();
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
 
             services.AddDbContext<CityWaspContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("CityWaspContext")));
@@ -49,6 +54,7 @@ namespace CityWasp
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 

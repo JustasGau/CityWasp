@@ -78,6 +78,60 @@ namespace CityWasp.Migrations
 
                     b.ToTable("Discount");
                 });
+
+            modelBuilder.Entity("CityWasp.Models.Trip", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("discountApplied")
+                        .HasColumnType("int");
+
+                    b.Property<int>("distance")
+                        .HasColumnType("int");
+
+                    b.Property<int>("length")
+                        .HasColumnType("int");
+
+                    b.Property<double>("price")
+                        .HasColumnType("float");
+
+                    b.Property<int>("state")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Trip");
+                });
+
+            modelBuilder.Entity("CityWasp.Models.User", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("User");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -24,5 +24,7 @@ namespace CityWasp.Models
 
         [Display(Name = "Kodas")]
         public string code { get; set; }
+
+
     }
 }

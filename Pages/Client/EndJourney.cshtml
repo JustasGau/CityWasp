@@ -1,0 +1,55 @@
+﻿@page "{id:int}"
+@model CityWasp.EndJourneyModel
+@{
+    ViewData["Title"] = "EndJourney";
+}
+
+<h1>Baigti kelionę</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                @if (Model.Status == 2)
+                {
+                    <h2>Nėra neapmokėtų kelionių</h2>
+                }
+                @if (Model.Status == 0)
+                {
+                    <input type="submit" asp-page-handler="EndTrip" value="Baigti kelionę" class="btn btn-primary" />
+                }
+                <br />
+                @if (Model.Status == 1)
+                {
+                    <label class="control-label">Kelionės kaina</label>
+                    <input class="form-control" asp-for="Trip.price" disabled />
+                    @if (Model.dicountIs != 0)
+                    {
+                        <label class="control-label">Pritaikyta nuolaida @Model.dicountIs %</label>
+                    }
+                }
+
+            </div>
+            @if (TempData["error"] != null)
+            {
+                <p style="color:darkred">@TempData["error"]</p>
+            }
+            @if (TempData["success"] != null)
+            {
+                <p style="color:forestgreen">@TempData["success"]</p>
+            }
+            @if (Model.Status == 1)
+            {
+                <div class="form-group">
+                    <label class="control-label">Nuolaidos Kodas</label>
+                    <input class="form-control" name="discount" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" asp-page-handler="ApplyDiscount" value="Pritaikyti nuolaidą" class="btn btn-primary" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" asp-page-handler="PayForTrip" value="Susimokėti" class="btn btn-primary" />
+                </div>
+            }
+        </form>
+    </div>
+</div>
