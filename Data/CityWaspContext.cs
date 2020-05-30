@@ -20,5 +20,6 @@ namespace CityWasp.Data
 
         public DbSet<CityWasp.Models.Trip> Trip { get; set; }
         public DbSet<CityWasp.Models.User> User { get; set; }
+
     }
 }
