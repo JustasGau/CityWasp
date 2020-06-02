@@ -5,19 +5,17 @@
 }
 
 <h1>ReservationView</h1>
-
+<h5>Cancel Reservation</h5>
 <form method="post" name="1">
     <input type="hidden" asp-for="Car.id" />
     <input type="hidden" asp-for="Car.state" />
     <input type="submit" value="Cancel Reservation" asp-page-handler="Cancel" asp-route-id="@Model.Car.id" class="btn btn-danger" /> |
-    <a asp-page="./Index">Į sąrašą</a>
+    <a asp-page="./View">Į sąrašą</a>
 </form>
-
+<h5>Renew Reservation</h5>
 <form method="post" name="2">
     <input type="hidden" asp-for="Car.id" />
     <input type="hidden" asp-for="Car.state" />
     <input type="submit" value="Renew Reservation" asp-page-handler="Renew" asp-route-id="@Model.Car.id" class="btn btn-danger" /> |
-    <a asp-page="./Index">Į sąrašą</a>
+    <a asp-page="./View">Į sąrašą</a>
 </form>
-
-<h5>Renew Reservation</h5>

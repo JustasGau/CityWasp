@@ -4,14 +4,82 @@
     ViewData["Title"] = "ClosestCarView";
 }
 
-<h1>ClosestCarView</h1>
+<h1>Artimiausi automobiliai</h1>
 
-@foreach (var item in Model.Car)
-{
     <div class="form-group">
-        <label asp-for="@item.coordinates" class="control-label"></label>
-        <option class="form-control" value="@item.coordinates">@item.coordinates</option>
-        <span asp-validation-for="@item.coordinates" class="text-danger"></span>
+        <label asp-for="@Model.Car[0].coordinates" class="control-label"></label>
+        <option class="form-control" value="@Model.Car[0].coordinates">@Model.Car[0].coordinates</option>
+        <span asp-validation-for="@Model.Car[0].coordinates" class="text-danger"></span>
     </div>
-}
 
+<div>
+    <h2>Artimiausi automobiliai</h2>
+    @if (Model.Car.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].manufacturer)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].coordinates)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].mileage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].techincal)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].value)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].currentValue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Car[0].state)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Car)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.manufacturer)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.coordinates)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.mileage)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.techincal)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.value)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.currentValue)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.state)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5>Rezervuotų automobilių nėra</h5>
+    }
+</div>

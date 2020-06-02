@@ -70,7 +70,7 @@ namespace CityWasp
 
         private IActionResult openReservationView(int id)
         {
-            return RedirectToPage("./ReservationView?id=", new
+            return RedirectToPage("./ReservationView", new
             {
                 id = id
             });

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CityWasp.Models;
 
 namespace CityWasp.Models
 {
@@ -23,17 +24,6 @@ namespace CityWasp.Models
         public TripState state { get; set; }
         public int discountApplied { get; set; }
 
-
-		public enum TripType
-		{
-			paid,
-
-			started,
-
-			ended,
-
-		}
-
 		public Car tripCar { get; set; }
 
 		public void create(Car car)
@@ -42,5 +32,6 @@ namespace CityWasp.Models
 			date = DateTime.Now;
 			tripCar = car;
 		}
+
     }
 }

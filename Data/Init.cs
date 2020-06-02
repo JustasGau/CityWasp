@@ -14,7 +14,7 @@ namespace CityWasp.Data
             var trips = new Trip[]
             {
                 new Trip { length = 30, distance = 10000,
-                    date = DateTime.Now, price = 0, state = Trip.TripState.Started, discountApplied = 0 }
+                    date = DateTime.Now, price = 0, state = Trip.TripState.Started, discountApplied = 0}
             };
 
             context.Trip.AddRange(trips);
