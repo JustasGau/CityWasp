@@ -9750,19 +9750,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\armsab\\.nuget\\packages\\": {}
+    "C:\\Users\\Justas\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project2\\CityWasp.csproj",
+      "projectUniqueName": "C:\\Users\\Justas\\Desktop\\CityWasp\\CityWasp.csproj",
       "projectName": "CityWasp",
-      "projectPath": "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project2\\CityWasp.csproj",
-      "packagesPath": "C:\\Users\\armsab\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project2\\obj\\",
+      "projectPath": "C:\\Users\\Justas\\Desktop\\CityWasp\\CityWasp.csproj",
+      "packagesPath": "C:\\Users\\Justas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Justas\\Desktop\\CityWasp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\armsab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Justas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

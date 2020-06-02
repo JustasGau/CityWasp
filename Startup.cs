@@ -33,7 +33,7 @@ namespace CityWasp
             });
 
             services.AddDbContext<CityWaspContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("CityWaspContext")));
+                    options.UseMySQL("server=localhost;database=citywasp;user=root;password="));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
