@@ -22,5 +22,25 @@ namespace CityWasp.Models
 
         public TripState state { get; set; }
         public int discountApplied { get; set; }
+
+
+		public enum TripType
+		{
+			paid,
+
+			started,
+
+			ended,
+
+		}
+
+		public Car tripCar { get; set; }
+
+		public void create(Car car)
+		{
+			state = CityWasp.Models.Trip.TripState.Started;
+			date = DateTime.Now;
+			tripCar = car;
+		}
     }
 }

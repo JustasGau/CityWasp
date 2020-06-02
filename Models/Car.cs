@@ -39,5 +39,10 @@ namespace CityWasp.Models
         [Display(Name = "Būsena")]
         [EnumDataType(typeof(CarState))]
         public CarState state { get; set; }
+
+        public void changeState()
+        {
+            state = CarState.InUse;
+        }
     }
 }

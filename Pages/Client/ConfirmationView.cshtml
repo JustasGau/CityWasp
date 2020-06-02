@@ -1,0 +1,13 @@
+﻿@page
+@model CityWasp.TripConfirmationViewModel
+@{
+    ViewData["Title"] = "TripConfirmationView";
+}
+
+<h1>TripConfirmationView</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="car_id" />
+    <input type="submit" value="Patvirtinti" class="btn btn-danger" /> |
+    <a asp-page="./Index">Į sąrašą</a>
+</form>

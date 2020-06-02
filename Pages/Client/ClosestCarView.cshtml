@@ -1,0 +1,17 @@
+﻿@page
+@model CityWasp.ClosestCarViewModel
+@{
+    ViewData["Title"] = "ClosestCarView";
+}
+
+<h1>ClosestCarView</h1>
+
+@foreach (var item in Model.Car)
+{
+    <div class="form-group">
+        <label asp-for="@item.coordinates" class="control-label"></label>
+        <option class="form-control" value="@item.coordinates">@item.coordinates</option>
+        <span asp-validation-for="@item.coordinates" class="text-danger"></span>
+    </div>
+}
+

@@ -3,48 +3,51 @@ using System;
 using CityWasp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CityWasp.Migrations
 {
     [DbContext(typeof(CityWaspContext))]
-    [Migration("20200530152408_Mysql")]
-    partial class Mysql
+    [Migration("20200601204505_mig")]
+    partial class mig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("CityWasp.Models.Car", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("coordinates")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("currentValue")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("manufacturer")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("mileage")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("model")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("state")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("techincal")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("value")
                         .HasColumnType("decimal(18, 2)");
@@ -58,19 +61,20 @@ namespace CityWasp.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("code")
-                        .HasColumnType("text");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("endDate")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("percent")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("startDate")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("id");
 
@@ -81,10 +85,11 @@ namespace CityWasp.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("date")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("discountApplied")
                         .HasColumnType("int");
@@ -96,37 +101,26 @@ namespace CityWasp.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("price")
-                        .HasColumnType("double");
+                        .HasColumnType("float");
 
                     b.Property<int>("state")
                         .HasColumnType("int");
 
+                    b.Property<int?>("tripCarid")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
+
+                    b.HasIndex("tripCarid");
 
                     b.ToTable("Trip");
                 });
 
-            modelBuilder.Entity("CityWasp.Models.User", b =>
+            modelBuilder.Entity("CityWasp.Models.Trip", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("email")
-                        .HasColumnType("text");
-
-                    b.Property<string>("password")
-                        .HasColumnType("text");
-
-                    b.Property<string>("type")
-                        .HasColumnType("text");
-
-                    b.Property<string>("username")
-                        .HasColumnType("text");
-
-                    b.HasKey("id");
-
-                    b.ToTable("User");
+                    b.HasOne("CityWasp.Models.Car", "tripCar")
+                        .WithMany()
+                        .HasForeignKey("tripCarid");
                 });
 #pragma warning restore 612, 618
         }
