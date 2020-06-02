@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Justas\\Desktop\\CityWasp\\CityWasp.csproj": {}
+    "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project3\\CityWasp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Justas\\Desktop\\CityWasp\\CityWasp.csproj": {
+    "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project3\\CityWasp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Justas\\Desktop\\CityWasp\\CityWasp.csproj",
+        "projectUniqueName": "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project3\\CityWasp.csproj",
         "projectName": "CityWasp",
-        "projectPath": "C:\\Users\\Justas\\Desktop\\CityWasp\\CityWasp.csproj",
-        "packagesPath": "C:\\Users\\Justas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Justas\\Desktop\\CityWasp\\obj\\",
+        "projectPath": "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project3\\CityWasp.csproj",
+        "packagesPath": "C:\\Users\\armsab\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\armsab\\Desktop\\Development\\pssia\\project3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Justas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\armsab\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

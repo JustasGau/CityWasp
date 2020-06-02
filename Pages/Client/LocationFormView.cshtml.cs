@@ -25,6 +25,7 @@ namespace CityWasp
         public IList<Car> Car { get; set; }
         public IList<Trip> Trip { get; set; }
         public IList<Car> CarCoordinates { get; set; }
+        public IList<Car> filtered { get; set; }
         public IList<Car> searched { get; set; }
 
         public List<SelectListItem> Options { get; set; }
@@ -52,7 +53,7 @@ namespace CityWasp
                                   {
                                       Value = a.coordinates.ToString(),
                                       Text = a.coordinates
-                                  }).ToList();
+                                  }).Distinct().ToList();
             return Page();
         }
 

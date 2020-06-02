@@ -4,7 +4,7 @@
     ViewData["Title"] = "ReserveCar";
 }
 
-<h1>ReserveCar</h1>
+<h1>Rezervuoti automobilį</h1>
 
 <h1>Automobiliai</h1>
 
@@ -12,5 +12,5 @@
     <input type="hidden" asp-for="Car.id" />
     <input type="hidden" asp-for="Car.state" />
     <input type="submit" value="Rezervuoti" asp-route-id="@Model.Car.id" asp-page-handler="Confirm" asp-route-state="@Model.Car.state" class="btn btn-danger" /> |
-    <a asp-page="./Index">Į sąrašą</a>
+    <a asp-page="./View">Į sąrašą</a>
 </form>
