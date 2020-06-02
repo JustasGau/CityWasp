@@ -495,7 +495,6 @@ C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtm
 C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\User\ChangeType.cshtml.g.cs
 C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\CityWasp.RazorTargetAssemblyInfo.cache
@@ -719,3 +718,10 @@ C:\Users\armsab\Desktop\Development\pssia\project2\obj\Debug\netcoreapp3.1\Razor
 C:\Users\armsab\Desktop\Development\pssia\project2\obj\Debug\netcoreapp3.1\Razor\Pages\Client\View.cshtml.g.cs
 C:\Users\armsab\Desktop\Development\pssia\project2\obj\Debug\netcoreapp3.1\Razor\Pages\Client\LocationFormView.cshtml.g.cs
 C:\Users\armsab\Desktop\Development\pssia\project2\obj\Debug\netcoreapp3.1\Razor\Pages\Client\ClosestCarView.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\ClosestCarView.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\ConfirmationView.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\LocationFormView.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\ReservationView.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\ReserveCar.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\StartTrip.cshtml.g.cs
+C:\Users\Justas\Desktop\CityWasp\obj\Debug\netcoreapp3.1\Razor\Pages\Client\View.cshtml.g.cs
